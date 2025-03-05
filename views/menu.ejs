@@ -10,47 +10,47 @@
     <%- include('./partials/nav') %>
 
     <h1>Full Menu</h1>
-    
+    <!-- filter different categories into lists -->
+    <% const mains = menu.filter(value => value.category === "mains") %>
+    <% const desserts = menu.filter(value => value.category === "desserts") %>
+    <% const sides = menu.filter(value => value.category === "sides") %>
     <!-- display menu items according to category -->
+     
     <h2>Mains</h2>
     <ul>
-      <% menu.forEach(item => { %>
-         <% if (item.category === "mains") { %>
+      <% mains.forEach(item => { %>
+         
             <% let star = ""; %>
             <% if (item.rating === 5) { star = "⭐"} %>
             <li>
               <%= star %> <%=item.name %> - $<%= item.price %> (Rating: <%= item.rating %>/5)
               <p><%= item.details %></p>
             </li>
-        <% } %> 
+      
       <% }); %>
     </ul>
 
     <h2>Desserts</h2>
     <ul>
-      <% menu.forEach(item => { %>
-         <% if (item.category === "desserts") { %>
-          <% let star = ""; %>
-          <% if (item.rating === 5) { star = "⭐"} %>
-            <li>
-              <%= star %><%= item.name %> - $<%= item.price %> (Rating: <%= item.rating %>/5)
-              <p><%= item.details %></p>
-            </li>
-        <% } %> 
+      <% desserts.forEach(item => { %>
+        <% let star = ""; %>
+        <% if (item.rating === 5) { star = "⭐"} %>
+          <li>
+            <%= star %><%= item.name %> - $<%= item.price %> (Rating: <%= item.rating %>/5)
+            <p><%= item.details %></p>
+          </li>
       <% }); %>
     </ul>
 
     <h2>Sides</h2>
     <ul>
-      <% menu.forEach(item => { %>
-         <% if (item.category === "sides") { %>
-          <% let star = ""; %>
-          <% if (item.rating === 5) { star = "⭐"} %>
-            <li>
-              <%= star %><%= item.name %> - $<%= item.price %> (Rating: <%= item.rating %>/5)
-              <p><%= item.details %></p>
-            </li>
-        <% } %> 
+      <% sides.forEach(item => { %>
+        <% let star = ""; %>
+        <% if (item.rating === 5) { star = "⭐"} %>
+          <li>
+            <%= star %><%= item.name %> - $<%= item.price %> (Rating: <%= item.rating %>/5)
+            <p><%= item.details %></p>
+          </li>
       <% }); %>
     </ul>
 
