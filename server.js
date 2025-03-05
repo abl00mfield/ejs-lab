@@ -56,7 +56,18 @@ const RESTAURANT = {
 };
 
 app.get("/", (req, res) => {
-  res.send("Hello There!");
+  res.render("home.ejs", { restaurant: RESTAURANT });
+});
+
+app.get("/menu", (req, res) => {
+  res.render("menu.ejs", { menu: RESTAURANT.menu });
+});
+
+app.get("/menu/:category", (req, res) => {
+  const filteredMenu = RESTAURANT.menu.filter(
+    (item) => item.category === req.params.category
+  );
+  res.render("category.ejs", { menuItems: filteredMenu });
 });
 
 // Start the server
