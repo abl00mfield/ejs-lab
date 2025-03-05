@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 
+//data
+
 const RESTAURANT = {
   name: "The Green Byte Bistro",
   isOpen: true,
@@ -55,15 +57,22 @@ const RESTAURANT = {
   ],
 };
 
+//home page
 app.get("/", (req, res) => {
+  //send the restaurant data
   res.render("home.ejs", { restaurant: RESTAURANT });
 });
 
+//menu page
 app.get("/menu", (req, res) => {
+  //only send the menu object to the menu page
   res.render("menu.ejs", { menu: RESTAURANT.menu });
 });
 
+//category page
+
 app.get("/menu/:category", (req, res) => {
+  //filter the menu before sending to category page
   const filteredMenu = RESTAURANT.menu.filter(
     (item) => item.category === req.params.category
   );

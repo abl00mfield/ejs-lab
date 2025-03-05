@@ -3,14 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- capitalize the first letter -->
     <% const category = menuItems[0].category.charAt(0).toUpperCase() + menuItems[0].category.slice(1); %>
+
     <title><%= category %></title>
   </head>
   <body>
+    <!-- navigation bar -->
     <%- include('./partials/nav') %>
+
     <h1><%= category %></h1>
     <ul>
       <% menuItems.forEach(item => { %>
+        <!-- display star for items rated 5 -->
         <% let star = "" %>
         <% if (item.rating === 5) { star = "⭐"} %>
         <li>

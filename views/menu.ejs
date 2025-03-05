@@ -6,8 +6,12 @@
     <title>Menu</title>
   </head>
   <body>
+    <!-- navigation bar -->
     <%- include('./partials/nav') %>
+
     <h1>Full Menu</h1>
+    
+    <!-- display menu items according to category -->
     <h2>Mains</h2>
     <ul>
       <% menu.forEach(item => { %>
@@ -21,6 +25,7 @@
         <% } %> 
       <% }); %>
     </ul>
+
     <h2>Desserts</h2>
     <ul>
       <% menu.forEach(item => { %>
@@ -34,6 +39,7 @@
         <% } %> 
       <% }); %>
     </ul>
+
     <h2>Sides</h2>
     <ul>
       <% menu.forEach(item => { %>
@@ -47,5 +53,6 @@
         <% } %> 
       <% }); %>
     </ul>
+
   </body>
 </html>
